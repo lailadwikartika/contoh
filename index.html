@@ -25,18 +25,22 @@
     </header>
 
     <main>
-        <section id="home" class="hero section">
-            <div class="container hero-content">
-                <div class="hero-text">
-                    <div class="hero-roles">UI/UX DESIGNER &bull; QUALITY ASSURANCE &bull; DATA SCIENTIST</div>
-                    <h1>Laila Dwi<br>Kartika Sari</h1>
-                    <p>Lulusan Teknik Informatika dengan keahlian dalam merancang pengalaman digital, memastikan kualitas produk, dan menganalisis data untuk menciptakan solusi yang berdampak.</p>
-                    <div class="hero-buttons">
-    <a href="public/CV_LAILA DWI KARTIKA SARI BARU.pdf" target="_blank" class="btn btn-solid">Lihat CV <i class="fas fa-file-pdf"></i></a>
+        <div class="hero-buttons">
+    <a href="#" onclick="downloadCV()" class="btn btn-solid">
+        <i class="fas fa-download"></i> Download CV
+    </a>
 </div>
-                </div>
-            </div>
-        </section>
+
+<script>
+function downloadCV() {
+    const link = document.createElement('a');
+    link.href = 'public/CV_LAILA DWI KARTIKA SARI BARU.pdf';
+    link.download = 'CV_Laila_Dwi_Kartika_Sari.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
 
         <section id="about" class="about section">
             <div class="container content">
