@@ -34,7 +34,34 @@
                     <a href="CV_Laila_Dwi_Kartika_Sari.pdf" download class="btn btn-solid">
     <i class="fas fa-download"></i> Download CV
 </a>
-
+<script>
+function downloadCV() {
+    // Ganti dengan nama file yang persis ada di folder public
+    const fileUrl = 'public/CV_Laila_Dwi_Kartika_Sari.pdf';
+    
+    fetch(fileUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('File tidak ditemukan: ' + response.status);
+            }
+            return response.blob();
+        })
+        .then(blob => {
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.href = url;
+            link.download = 'CV_Laila_Dwi_Kartika_Sari.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('File CV tidak ditemukan. Periksa nama file: ' + fileUrl);
+        });
+}
+</script>
             </div>
         </section>
 
